@@ -1,0 +1,111 @@
+<h1 align="center"> Register New Member</h1>
+
+<mat-card>
+
+
+
+    <div>
+        <form #user="ngForm" class="ui form" (ngSubmit)="AddNewUser(user)">
+
+
+            <div>
+                <div class="field">
+                    <label>Full Name*</label>
+                    <input type="text" placeholder="Full Name*" ngModel name="fullname" fullname required #fullname="ngModel" >
+                </div>
+
+            </div>
+
+            <div class="two fields">
+                <div class="field">
+                    <label>User Phone Number*</label>
+                    <input placeholder="Phone Number*" ngModel name="Phone" Phone required #Phone="ngModel" (keypress)="onlyNumber($event)" placeholder="024 828 4049" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" maxlength="10" title="Ten digits code">
+                </div>
+                <div class="field">
+                    <label>Age</label>
+                    <input type="text" placeholder="Age" ngModel name="age" age required #age="ngModel">
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Gender*</label>
+                    <select class="ui search dropdown" ngModel name="gender" gender required #gender="ngModel">
+                <option value="">Select Gender*</option>
+                <option value="Male"> Male</option>
+                <option value="Female"> Female</option>
+              
+              </select>
+                </div>
+                <div class="field">
+                    <label>Voters ID Number *</label>
+                    <input type="text" ngModel name="Voter_ID_Number" Voter_ID_Number required #Departmnt="ngModel">
+                </div>
+                <div class="field">
+                    <label>Address/Location *</label>
+                    <input type="text" ngModel name="Location" Location required #Location="ngModel">
+                </div>
+                <div class="field">
+                    <label>Tribe *</label>
+                    <input type="text" ngModel name="Tribe" Tribe required #Tribe="ngModel">
+                </div>
+                <div class="field">
+                    <label>Polling Station Code*</label>
+                    <input type="text" ngModel name="Polling_Station_Code" Polling_Station_Code required #Polling_Station_Code="ngModel">
+                </div>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Aditional Address (optional)</label>
+                    <input placeholder="eg. office number" ngModel name="aditionalAddres" aditionalAddres required #aditionalAddres="ngModel">
+                </div>
+        
+                    <div class="field">
+                        <label>Occupatioin *</label>
+                        <input type="text" ngModel name="Occupatioin" Occupatioin required #Occupatioin="ngModel">
+                    </div>
+    
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>Position*</label>
+                    <select class="ui search dropdown" ngModel name="Position" Position required #Position="ngModel">
+                <option value="">Select Position*</option>
+                <option value="Member"> Member</option>
+                <option value="Female"> Others</option>
+              
+              </select>
+                </div>
+                <div class="field">
+                    <label>Branch Name *</label>
+                    <input type="text" ngModel name="Branch_Name" Branch_Name required #Branch_Name="ngModel">
+                </div>
+            </div>
+           
+            <div class="two fields">
+
+                <div class="field"> <label>System Date</label>
+                    <input [(ngModel)]="CurrenDate" ngModel name="Date" Date required #Date="ngModel"></div>
+                <div class="field">
+                    <label> System Time</label>
+                    <div class="field"><input [(ngModel)]="CurrentTime" ngModel name="time" time required #time="ngModel"></div>
+                </div>
+            </div>
+            <div class="two fields">
+
+                <div class="field"> <input type="file" (change)="uploadFile($event)">
+
+                      <div>{{ uploadPercent | async }}</div>
+
+                    <input type="hidden" [ngModel]="downloadURL | async" ngModel name="imgUrl" imgUrl required #imgUrl="ngModel" readonly>
+
+                </div>
+
+                <div><img style="width:150px;height:150px;" [src]="downloadURL | async"/></div>
+
+            </div>
+            <div class="field">
+                <button type="submit" class="fluid ui  basic button">Save User Record</button>
+            </div>
+        </form>
+    </div>
+</mat-card>
